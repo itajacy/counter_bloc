@@ -27,12 +27,16 @@ class CounterBlocPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<CounterBloc>().add(CounterIncrement());
+                  },
                   icon: const Icon(Icons.add),
                   label: const Text(''),
                 ),
                 TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<CounterBloc>().add(CounterDecrement());
+                    },
                     icon: const Icon(Icons.remove),
                     label: const Text('')),
               ],
