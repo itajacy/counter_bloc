@@ -1,4 +1,6 @@
+import 'package:counter_bloc/page_bloc/bloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CounterBlocPage extends StatelessWidget {
   const CounterBlocPage({super.key});
@@ -13,9 +15,13 @@ class CounterBlocPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            BlocBuilder<CounterBloc, CounterState>(
+              builder: (context, state) {
+                return Text(
+                  'Counter.:  ${state.counter}',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                );
+              },
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
