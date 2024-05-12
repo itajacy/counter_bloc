@@ -19,7 +19,7 @@ class CounterBlocPage extends StatelessWidget {
               builder: (context, state) {
                 return Text(
                   'Counter.:  ${state.counter}',
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: Theme.of(context).textTheme.headlineLarge,
                 );
               },
             ),
