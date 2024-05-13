@@ -1,25 +1,21 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+// import 'package:equatable/equatable.dart';
+
 part of 'counter_cubit.dart';
 
 // A parte de estado é idêntica a do Bloc
 
-abstract class CounterState {
+abstract class CounterState extends Equatable {
   final int counter;
-  CounterState(this.counter);
+  const CounterState(this.counter);
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is CounterState && other.counter == counter;
-  }
-
-  @override
-  int get hashCode => counter.hashCode;
+  List<Object> get props => [counter];
 }
 
 class CounterStateInitial extends CounterState {
   //* O estado inicial sempre será 0(ZERO)
-  CounterStateInitial() : super(0);
+  const CounterStateInitial() : super(0);
 }
 
 class CounterStateData extends CounterState {
